@@ -31,12 +31,12 @@ fun Canvas.drawSideExpanderBrick(i : Int, scale : Float, w : Float, h : Float, p
     val sf2 : Float = sf.divideScale(1, 2)
     val sf1i : Float = sf1.divideScale(i, bricks)
     val sf2i : Float = sf2.divideScale(i, bricks)
-    val gap : Float = h / (bricks + 2)
+    val gap : Float = h / (bricks + 1)
     val size : Float = gap / sizeFactor
-    val y : Float = gap * (i + 1)
+    val y : Float = h - gap * (i + 1)
     val upSize : Float = size * sf1i
     save()
-    translate((w / 2 - size) * sf2i, y)
+    translate(-(w / 2 - size) * sf2i, y)
     drawRect(RectF(-upSize, -size / 2, 0f, size / 2), paint)
     restore()
 }
