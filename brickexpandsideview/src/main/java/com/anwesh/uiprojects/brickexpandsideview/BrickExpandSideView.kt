@@ -211,4 +211,13 @@ class BrickExpandSideView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity : Activity) : BrickExpandSideView {
+            val view : BrickExpandSideView = BrickExpandSideView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
