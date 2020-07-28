@@ -186,4 +186,27 @@ class BrickExpandSideView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : BrickExpandSideView) {
+
+        private val animator : Animator = Animator(view)
+        private val bes : BrickExpandSide = BrickExpandSide(0)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            bes.draw(canvas, paint)
+            animator.animate {
+                bes.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            bes.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
