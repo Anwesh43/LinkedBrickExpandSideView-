@@ -59,3 +59,19 @@ fun Canvas.drawSEBNode(i : Int, scale : Float, paint : Paint) {
     paint.color = Color.parseColor(colors[i])
     drawSideExpanderBricks(scale, w, h, paint)
 }
+
+class BrickExpandSideView(ctx : Context) : View(ctx) {
+
+    override fun onDraw(canvas : Canvas) {
+
+    }
+
+    override fun onTouchEvent(event : MotionEvent) : Boolean {
+        when (event.action) {
+            MotionEvent.ACTION_DOWN -> {
+
+            }
+        }
+        return true
+    }
+}
